@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../themes/color_variables.dart';
-
 Future<void> customAlertDialog<T>({
   required BuildContext context,
   required List<Widget> actions,
@@ -12,7 +10,7 @@ Future<void> customAlertDialog<T>({
   final IconData? icon,
   final bool outsideDismissible = true,
   final bool barrierDismissible = true,
-  final Color iconColor = ReplyColors.blue75, //!theme
+  final Color iconColor = Colors.blue,
   final Function? popFunction,
 }) async {
   final result = await showDialog(
@@ -31,7 +29,7 @@ Future<void> customAlertDialog<T>({
           elevation: 1,
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
-          backgroundColor: ReplyColors.neutralLight,
+          // backgroundColor: ReplyColors.neutralLight,
           children: <Widget>[
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -39,8 +37,9 @@ Future<void> customAlertDialog<T>({
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Container(
-                    constraints: BoxConstraints(maxWidth: 60, maxHeight: 60),
-                    padding: EdgeInsets.all(10),
+                    constraints:
+                        const BoxConstraints(maxWidth: 60, maxHeight: 60),
+                    padding: const EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       color: iconColor.withOpacity(0.15),
                       borderRadius: BorderRadius.circular(5),
@@ -59,9 +58,9 @@ Future<void> customAlertDialog<T>({
                 ),
                 IconButton(
                   iconSize: 20.w,
-                  icon: const Icon(
+                  icon: Icon(
                     Icons.close,
-                    color: ReplyColors.neutral75,
+                    color: Colors.grey[500],
                   ),
                   onPressed: () {
                     if (popFunction != null) {

@@ -70,9 +70,14 @@ class AddEditChild extends GetView<StudentController> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(isEditStudent ? "Edit Student" : "Add Student"),
+              Center(
+                child: Text(
+                  isEditStudent ? "Edit student details" : "Add student",
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+              ),
               isEditStudent
                   ? IconButton(
                       onPressed: () {
@@ -111,10 +116,8 @@ class AddEditChild extends GetView<StudentController> {
                             children: [
                               Text(
                                   'Are you sure you want to delete this student?',
-                                  style: Theme.of(context)
-                                      .textTheme
-                                      .titleLarge!
-                                      .copyWith(color: ReplyColors.orange75)),
+                                  style:
+                                      Theme.of(context).textTheme.titleLarge),
                             ],
                           ),
                         );
@@ -123,11 +126,14 @@ class AddEditChild extends GetView<StudentController> {
                   : SizedBox()
             ],
           ),
-          Text(isEditStudent ? student!.id.toString() : ""),
+          SizedBox(
+            height: 12.h,
+          ),
           Obx(
             () => CustomTextField(
               label: "Name",
               hintText: "Enter name",
+              inputColor: Theme.of(context).colorScheme.secondary,
               initialValue: isEditStudent ? student!.name.toString() : null,
               type: InputType.text,
               variant: Variant.outlined,
@@ -142,6 +148,7 @@ class AddEditChild extends GetView<StudentController> {
           Obx(
             () => CustomSelectField(
               label: "Age",
+              inputColor: Theme.of(context).colorScheme.secondary,
               choosenValue: isEditStudent ? student!.age.toString() : null,
               handleChange: (val) =>
                   controller.handleAgeChange(int.parse(val!.trim().toString())),
@@ -163,6 +170,7 @@ class AddEditChild extends GetView<StudentController> {
                   controller.handleGradeChange(val!.trim().toString()),
               variant: Variant.outlined,
               hintText: "Select Grade",
+              inputColor: Theme.of(context).colorScheme.secondary,
               choosenValue: isEditStudent ? student!.grade : null,
               listOptions: [
                 SelectFieldType(label: "A+", value: "A+"),

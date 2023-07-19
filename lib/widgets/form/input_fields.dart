@@ -15,10 +15,11 @@ enum Variant { filled, outlined }
 
 class CustomLabel extends StatelessWidget {
   final String label;
-  final Color labeColor;
-  const CustomLabel(
-      {Key? key, required this.label, this.labeColor = ReplyColors.neutralBold})
-      : super(key: key);
+
+  const CustomLabel({
+    Key? key,
+    required this.label,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,7 @@ class CustomLabel extends StatelessWidget {
       style: Theme.of(context)
           .textTheme
           .labelLarge!
-          .copyWith(color: labeColor, fontWeight: FontWeight.w500),
+          .copyWith(fontWeight: FontWeight.w500),
     );
   }
 }
@@ -56,7 +57,7 @@ class CustomTextField extends StatelessWidget {
   final bool? disabled;
   final bool? readOnly;
   final dynamic controller;
-  final Color labelColor;
+
   final Color inputColor;
   final Color fillColor;
   final Color borderColor;
@@ -100,7 +101,6 @@ class CustomTextField extends StatelessWidget {
     this.disabled = false,
     this.readOnly = false,
     this.controller,
-    this.labelColor = ReplyColors.neutralBold,
     this.inputColor = ReplyColors.neutralBold,
     this.fillColor = ReplyColors.neutralLight,
     this.borderColor = ReplyColors.neutral50,
@@ -149,7 +149,9 @@ class CustomTextField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         label != null
-            ? CustomLabel(label: label ?? "", labeColor: labelColor)
+            ? CustomLabel(
+                label: label ?? "",
+              )
             : Container(),
         label != null ? SizedBox(height: headingSpace ?? 8) : Container(),
         Container(

@@ -140,19 +140,8 @@ class _CustomTabSwitchState extends State<CustomTabSwitch> {
                             style: widget.labelTextStyle ??
                                 Theme.of(context)
                                     .textTheme
-                                    .labelLarge!
-                                    .copyWith(
-                                        color: ReplyColors.neutral100,
-                                        fontWeight: FontWeight.w500)),
-                        // widget.hintWidget != null
-                        //     ? Padding(
-                        //         padding: const EdgeInsets.only(left: 8.0),
-                        //         child: Icon(
-                        //           FontAwesomeIcons.circleQuestion,
-                        //           size: 14,
-                        //         ),
-                        //       )
-                        //     : SizedBox()
+                                    .titleMedium!
+                                    .copyWith(fontWeight: FontWeight.w600)),
                       ],
                     ),
                   ),

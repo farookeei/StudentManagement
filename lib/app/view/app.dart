@@ -5,42 +5,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import '../../shared/bindings/app_bindings.dart';
 import '../../shared/controllers/theme_controller.dart';
 import '../../shared/data/network_client/dio_client.dart';
 import '../../themes/theme.dart';
 import '../routes/routes.dart';
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
   const MyApp({
     Key? key,
   }) : super(key: key);
-
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
-  @override
-  void initState() {
-    WidgetsBinding.instance.addObserver(this);
-
-    super.initState();
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
 
   @override
   Widget build(BuildContext context) {
     return AppView();
   }
 }
-
-final RouteObserver<PageRoute> routeObserver = RouteObserver<PageRoute>();
 
 class AppView extends StatefulWidget {
   AppView({
@@ -79,16 +60,12 @@ class _AppViewState extends State<AppView> {
         designSize: const Size(360, 800),
         builder: (ctx, _) {
           return GetMaterialApp(
-            //? added initial binding
             initialBinding: AppBinding(),
-            navigatorObservers: [routeObserver],
             debugShowCheckedModeBanner: false,
             theme: Themes.lightTheme,
             themeMode: themeController.theme,
             darkTheme: Themes.darkTheme,
             title: 'Student Management',
-            // locale: DevicePreview.locale(context),
-            // builder: DevicePreview.appBuilder,
             onGenerateRoute: _router.onGenerateRoute,
           );
         });

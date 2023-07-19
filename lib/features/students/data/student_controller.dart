@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:test_sample/config/const/constants.dart';
 import 'package:test_sample/widgets/snackbar/custom_snackbar.dart';
 
 import '../../../shared/database/student_database.dart';
@@ -18,7 +19,10 @@ class StudentController extends GetxController {
   final name = "".obs;
   final age = 0.obs;
   final grade = "".obs;
-  final isTableview = true.obs;
+  // final isTableview = true.obs;
+
+  final viewMode = Constants().viewMode.first.obs;
+  // final viewMode = ViewMode.tableView.obs;
   final isNamevalid = true.obs;
   final isAgevalid = true.obs;
   final isGradevalid = true.obs;
@@ -28,8 +32,11 @@ class StudentController extends GetxController {
       SelectFieldType(label: '$i years', value: "$i")
   ];
 
-  void updateDataView() {
-    isTableview.value = !isTableview.value;
+  void updateDataView(String val) {
+    // bool value = !isTableview.value;
+    // isTableview.value = value;
+    log(val);
+    viewMode.value = val;
   }
 
   void handlenameChange(String data) {

@@ -45,22 +45,6 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: elevation ?? 0,
       backgroundColor: backgroundColor,
       flexibleSpace: flexibleSpace,
-      leading: isLeadingEnabled
-          ? IconButton(
-              onPressed: () {
-                onBackapped == null
-                    ? Navigator.canPop(context) == false
-                        ? SystemNavigator.pop()
-                        : Navigator.pop(context)
-                    : onBackapped!();
-              },
-              icon: Icon(
-                Icons.arrow_back_ios_new_rounded,
-                color: ReplyColors.white,
-                size: 22.sp,
-              ),
-            )
-          : null,
       bottom: bottom,
       title: title != null
           ? Row(
@@ -74,7 +58,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                         Theme.of(context)
                             .textTheme
                             .titleLarge!
-                            .copyWith(color: ReplyColors.white),
+                            .copyWith(color: Colors.white),
                     overflow: TextOverflow.fade,
                     maxLines: 1,
                   ),

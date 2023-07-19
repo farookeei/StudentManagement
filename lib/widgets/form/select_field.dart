@@ -61,7 +61,9 @@ class _CustomSelectFieldState extends State<CustomSelectField> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         widget.labelWidget == null
-            ? CustomLabel(label: widget.label, labeColor: widget.labelColor)
+            ? CustomLabel(
+                label: widget.label,
+              )
             : widget.labelWidget!,
         const SizedBox(height: 8),
         DropdownButtonHideUnderline(
@@ -112,7 +114,7 @@ class _CustomSelectFieldState extends State<CustomSelectField> {
             onSaved: widget.onSaved,
             isExpanded: true,
             menuMaxHeight: 300.h,
-            dropdownColor: widget.fillColor,
+            dropdownColor: Theme.of(context).scaffoldBackgroundColor,
             items: widget.listOptions
                 .map<DropdownMenuItem<String>>((SelectFieldType value) {
               return DropdownMenuItem<String>(
@@ -120,8 +122,7 @@ class _CustomSelectFieldState extends State<CustomSelectField> {
                 child: Text(
                   value.label,
                   style: Theme.of(context).textTheme.labelLarge!.copyWith(
-                      color: ReplyColors.neutralBold,
-                      fontWeight: FontWeight.w500),
+                      color: widget.inputColor, fontWeight: FontWeight.w500),
                 ),
               );
             }).toList(),
