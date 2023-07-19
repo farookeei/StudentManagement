@@ -7,7 +7,7 @@ class Environment {
     return _singleton;
   }
 
-  Environment._internal(); //constructor can define init val to variables using {}
+  Environment._internal();
 
   static final Environment _singleton = Environment._internal();
 
