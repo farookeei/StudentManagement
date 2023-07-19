@@ -8,12 +8,8 @@ import 'config/env/env_model.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // await dotenv.load(fileName: '.env');
-  // String environment = dotenv.get("MODE", fallback: 'MODE UNDEFINED');
-
   Environment().initConfig("DEV");
-  GetStorage.init(); // In
+  GetStorage.init();
   StudentDatabase().initializeDatabase();
 
   runApp(const MyApp());
