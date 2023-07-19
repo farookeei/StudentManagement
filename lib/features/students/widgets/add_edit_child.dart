@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:test_sample/themes/color_variables.dart';
@@ -100,7 +97,7 @@ class AddEditChild extends GetView<StudentController> {
                                       snackBarType: SnackBarType.success,
                                       title: "Deleted Student");
                                 },
-                                child: Text("Remove student",
+                                child: const Text("Remove student",
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis)),
                             SizedBox(height: 8.h),
@@ -122,8 +119,8 @@ class AddEditChild extends GetView<StudentController> {
                           ),
                         );
                       },
-                      icon: Icon(Icons.delete))
-                  : SizedBox()
+                      icon: const Icon(Icons.delete))
+                  : const SizedBox()
             ],
           ),
           SizedBox(
@@ -200,54 +197,3 @@ class AddEditChild extends GetView<StudentController> {
     );
   }
 }
-
-
-
-
-
-
-          // Obx(
-          //   () => CustomTextField(
-          //     label: "Name",
-          //     hintText: "Enter name",
-          //     initialValue: isEditStudent ? student!.name.toString() : null,
-          //     type: InputType.text,
-          //     variant: Variant.outlined,
-          //     errorText: controller.validateName(),
-          //     onChanged: (val) =>
-          //         controller.handlenameChange(val!.trim().toString()),
-          //   ),
-          // ),
-          // SizedBox(height: 20.h),
-          // Obx(
-          //   () => CustomSelectField(
-          //     label: "Age",
-          //     choosenValue: isEditStudent ? student!.age.toString() : null,
-          //     handleChange: (val) =>
-          //         controller.handleAgeChange(int.parse(val!.trim().toString())),
-          //     variant: Variant.outlined,
-          //     hintText: "Select age",
-          //     errorText: controller.validateAge(),
-          //     listOptions: controller.ageRange,
-          //   ),
-          // ),
-          // SizedBox(height: 20.h),
-          // Obx(
-          //   () => CustomSelectField(
-          //     label: "Grade",
-          //     errorText: controller.validateGrade(),
-          //     handleChange: (val) =>
-          //         controller.handleGradeChange(val!.trim().toString()),
-          //     variant: Variant.outlined,
-          //     hintText: "Select Grade",
-          //     choosenValue: isEditStudent ? student!.grade : null,
-          //     listOptions: [
-          //       SelectFieldType(label: "A+", value: "A+"),
-          //       SelectFieldType(label: "A", value: "A"),
-          //       SelectFieldType(label: "B+", value: "B+"),
-          //       SelectFieldType(label: "B", value: "B"),
-          //       SelectFieldType(label: "C+", value: "C+"),
-          //       SelectFieldType(label: "C", value: "C"),
-          //     ],
-          //   ),
-          // ),

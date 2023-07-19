@@ -5,5 +5,3 @@ class Constants {
   static const String CARDVIEW = "Card";
   List<String> viewMode = [TABLEVIEW, CARDVIEW];
 }
-
-enum ViewMode { tableView, cardview }

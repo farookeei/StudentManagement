@@ -1,10 +1,7 @@
 import 'dart:developer';
 
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
 import 'package:test_sample/config/const/constants.dart';
-import 'package:test_sample/widgets/snackbar/custom_snackbar.dart';
 
 import '../../../shared/database/student_database.dart';
 import '../../../widgets/form/select_field.dart';
@@ -19,46 +16,39 @@ class StudentController extends GetxController {
   final name = "".obs;
   final age = 0.obs;
   final grade = "".obs;
-  // final isTableview = true.obs;
 
   final viewMode = Constants().viewMode.first.obs;
-  // final viewMode = ViewMode.tableView.obs;
+
   final isNamevalid = true.obs;
   final isAgevalid = true.obs;
   final isGradevalid = true.obs;
 
   var ageRange = [
-    for (var i = 6; i <= 18; i++)
+    for (var i = 6; i <= 21; i++)
       SelectFieldType(label: '$i years', value: "$i")
   ];
 
   void updateDataView(String val) {
-    // bool value = !isTableview.value;
-    // isTableview.value = value;
     log(val);
     viewMode.value = val;
   }
 
   void handlenameChange(String data) {
     name.value = data;
-    // validateName();
   }
 
   void handleAgeChange(int data) {
     age.value = data;
-    //  validateAge();
   }
 
   void handleGradeChange(String data) {
     grade.value = data;
-    // validateGrade();
   }
 
   cleardata() {
     grade.value = "";
     age.value = 0;
     name.value = "";
-    //!!!!!!TODO    remove validation logic
   }
 
   clearValidation() {
@@ -68,7 +58,7 @@ class StudentController extends GetxController {
   }
 
   bool validateName() {
-    if (name.value.isEmpty || name.value.length < 3) {
+    if (name.value.isEmpty || name.value.length < 4) {
       return isNamevalid.value = false;
     }
     return isNamevalid.value = true;
@@ -87,27 +77,6 @@ class StudentController extends GetxController {
     }
     return isGradevalid.value = true;
   }
-
-  // String? validateName() {
-  //   if (name.value.isEmpty) {
-  //     return 'Please enter a name';
-  //   }
-  //   return null;
-  // }
-
-  // String? validateAge() {
-  //   if (age.value == 0) {
-  //     return 'Please select an age';
-  //   }
-  //   return null;
-  // }
-
-  // String? validateGrade() {
-  //   if (grade.value.isEmpty) {
-  //     return 'Please select a grade';
-  //   }
-  //   return null;
-  // }
 
   Future<void> returnStudents() async {
     students.value = await studentDatabase.retrieveStudents();

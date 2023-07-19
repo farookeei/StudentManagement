@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
@@ -23,10 +22,6 @@ class Student {
 }
 
 class StudentDatabase {
-  // static final StudentDatabase _instance = StudentDatabase._internal();
-  // StudentDatabase._internal();
-  // factory StudentDatabase() => _instance;
-
   Future<Database> initializeDatabase() async {
     final String path = await getDatabasesPath();
     return openDatabase(

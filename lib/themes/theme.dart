@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Themes {
-// Light Theme Colors
   static const Color primaryColorLight = Color(0xFF2196F3); // Blue
 
-// Dark Theme Colors
   static const Color primaryColorDark = Color(0xFF2196F3); // Blue
 
-// Theme Data
   static final lightTheme = ThemeData(
     appBarTheme: AppBarTheme(
       color: primaryColorLight,

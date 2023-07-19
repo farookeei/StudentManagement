@@ -36,7 +36,6 @@ class _AppViewState extends State<AppView> {
   final themeController = Get.put(ThemeController());
 
   late final _router;
-  final DioClient _dio = DioClient();
 
   @override
   void initState() {

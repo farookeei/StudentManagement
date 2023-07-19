@@ -37,7 +37,6 @@ class CustomListView extends GetView<StudentController> {
                         margin: EdgeInsets.only(bottom: 12.h),
                         padding: EdgeInsets.all(12.sp),
                         decoration: BoxDecoration(
-                          // color: ReplyColors.white,
                           borderRadius: BorderRadius.circular(5.r),
                           border: Border.all(
                               width: 1, color: ReplyColors.neutral75),
@@ -67,7 +66,7 @@ class CustomListView extends GetView<StudentController> {
                                 )
                               ],
                             ),
-                            Icon(Icons.edit)
+                            const Icon(Icons.edit)
                           ],
                         )),
                   );
@@ -99,30 +98,3 @@ class ContentItem extends StatelessWidget {
     );
   }
 }
-
-  
-                    // ListTile(
-                    //     trailing: const Icon(Icons.edit),
-                    //     onTap: () {
-                    //       controller.clearValidation();
-
-                    //       fixedBottomSheet(
-                    //           context: context,
-                    //           type: FixedSheetType.floating,
-                    //           child: AddEditChild(
-                    //             isEditStudent: true,
-                    //             student: controller.students[i],
-                    //           ));
-                    //     },
-                    //     title: Text(
-                    //       "name: ${controller.students[i].name}",
-                    //       style: Theme.of(context).textTheme.labelLarge,
-                    //     ),
-                    //     subtitle: Column(
-                    //       children: [
-                    //         Text(
-                    //           controller.students[i].age.toString(),
-                    //           style: Theme.of(context).textTheme.labelLarge,
-                    //         )
-                    //       ],
-                    //     )),
