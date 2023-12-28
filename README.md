@@ -1,16 +1,8 @@
-# test_sample
+A Flutter project for managing student information, utilizing GetX for state management, Sqflite for local database, and GetStorage for storage. The project also includes a theme switching feature to customize the user interface.
 
-A new Flutter project.
+## Features
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- **Student Management:** Add, edit, and delete student information.
+- **Local Database:** Utilizes Sqflite for efficient local database storage.
+- **State Management:** Powered by GetX for reactive and efficient state management.
+- **Theme Switching:** Toggle between light and dark themes for a personalized     experience.
